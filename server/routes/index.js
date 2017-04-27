@@ -1,7 +1,16 @@
 //Base Modules
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 var path = require('path');
+
+// Handles login form POST from index.html
+router.post('/',
+    passport.authenticate('local', {
+        successRedirect: '/user',
+        failureRedirect: '/'
+    })
+);
 
 //Base Route
 router.get('/', function(req, res) {
