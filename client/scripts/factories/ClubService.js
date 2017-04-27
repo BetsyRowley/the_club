@@ -1,5 +1,5 @@
-myApp.factory('TeamService', ['$http', '$location', function($http, $location){
-  console.log('Team Service loaded.');
+myApp.factory('ClubService', ['$http', '$location', function($http, $location){
+  console.log('Club Service loaded.');
   // class dataObject {
   //   constructor() {}
   // }

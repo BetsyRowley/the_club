@@ -6,19 +6,19 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
   $locationProvider.hashPrefix('');
   $routeProvider
     .when('/home', {
-      templateUrl: '/views/home.html',
+      templateUrl: '/views/templates/home.html',
       controller: "LoginController"
     })
     .when('/register', {
-      templateUrl: '/views/register.html',
+      templateUrl: '/views/templates/register.html',
       controller: "LoginController"
     })
     .when('/user', {
-      templateUrl: '/views/user.html',
+      templateUrl: '/views/templates/user.html',
       controller: 'UserController',
       resolve: {
-        getuser : ['TeamService', function(TeamService){
-          return TeamService.getuser();
+        getuser : ['ClubService', function(ClubService){
+          return ClubService.getuser();
         }]
       }
     })
