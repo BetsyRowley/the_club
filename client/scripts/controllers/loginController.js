@@ -2,7 +2,9 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', 'ClubServic
       function($scope, $http, $location, ClubService) {
     $scope.user = {
       username: '',
-      password: ''
+      password: '',
+      first: '',
+      last: ''
     };
     $scope.message = '';
 
@@ -26,8 +28,9 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', 'ClubServic
     };
 
     $scope.registerUser = function() {
-      if($scope.user.username === '' || $scope.user.password === '') {
-        $scope.message = "Choose a username and password!";
+      if($scope.user.username === '' || $scope.user.password === '' ||
+          $scope.user.first === '' || $scope.user.last === '') {
+        $scope.message = "Please complete all fields!";
       } else {
         console.log('sending to server...', $scope.user);
         $http.post('/register', $scope.user).then(function(response) {
