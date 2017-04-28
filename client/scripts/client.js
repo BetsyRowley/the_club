@@ -51,7 +51,8 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/search', {
       templateUrl: '/views/templates/search.html',
-      controller: 'UserController',
+      controller: 'SearchController',
+      controllerAs: 'search',
       resolve: {
         getuser : ['ClubService', function(ClubService){
           return ClubService.getuser();

@@ -1,5 +1,19 @@
 <div class="container">
 
   <header ng-include="'/views/partials/nav.html'"></header>
-  <p>Search</p>
+  <p>Search Open Libary Books API</p>
+
+  <form>
+    <input type="text" name="book" placeholder="Enter a book title"
+              ng-model = "book">
+    <button type="button" name="search"
+              ng-click = "search.findBook(book)">Search</button>
+  </form>
+    <div ng-repeat = "book in search.bookResults.array">
+      <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn[0]}}-M.jpg"
+            alt="{{book.title}} Book Cover">
+      <p>{{book.title}}</p>
+      <p>By {{book.author_name[0]}}</p>
+      <p>Published In: {{book.first_publish_year}}</p>
+    </div>
 </div>
