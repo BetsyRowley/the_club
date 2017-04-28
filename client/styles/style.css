@@ -39,3 +39,8 @@
 .btn-danger{
     margin-left: 10px;
 }
+
+.navbar > ul > li{
+  width: 100px;
+  display: inline-block;
+}

@@ -18,7 +18,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', 'ClubServic
             console.log('success: ', response.data);
             // location works with SPA (ng-route)
             console.log('redirecting to user page');
-            $location.path('/user');
+            $location.path('/dashboard');
           } else {
             console.log('failure: ', response);
             $scope.message = "Wrong!!";
