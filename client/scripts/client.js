@@ -35,24 +35,26 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }]
       }
     })
-    // .when('/archive', {
-    //   templateUrl: '/views/templates/archive.html',
-    //   controller: 'UserController',
-    //   resolve: {
-    //     getuser : ['ClubService', function(ClubService){
-    //       return ClubService.getuser();
-    //     }]
-    //   }
-    // })
-    // .when('/nightstand', {
-    //   templateUrl: '/views/templates/nightstand.html',
-    //   controller: 'UserController',
-    //   resolve: {
-    //     getuser : ['ClubService', function(ClubService){
-    //       return ClubService.getuser();
-    //     }]
-    //   }
-    // })
+    .when('/archive', {
+      templateUrl: '/views/templates/archive.html',
+      controller: 'DashboardController',
+      controllerAs: 'dashboard',
+      resolve: {
+        getuser : ['ClubService', function(ClubService){
+          return ClubService.getuser();
+        }]
+      }
+    })
+    .when('/nightstand', {
+      templateUrl: '/views/templates/nightstand.html',
+      controller: 'DashboardController',
+      controllerAs: 'dashboard',
+      resolve: {
+        getuser : ['ClubService', function(ClubService){
+          return ClubService.getuser();
+        }]
+      }
+    })
     .when('/search', {
       templateUrl: '/views/templates/search.html',
       controller: 'SearchController',
