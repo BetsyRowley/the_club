@@ -1,9 +1,8 @@
 myApp.factory('ClubService', ['$http', '$location', function($http, $location){
   console.log('Club Service loaded.');
-  // class dataObject {
-  //   constructor() {}
-  // }
+
   var userObject = {};
+
   return {
     userObject : userObject,
 
