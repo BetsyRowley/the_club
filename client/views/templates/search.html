@@ -6,14 +6,30 @@
   <form>
     <input type="text" name="book" placeholder="Enter a book title"
               ng-model = "book">
-    <button type="button" name="search"
+    <button type="button" name="search" class = "btn btn-default"
               ng-click = "search.findBook(book)">Search</button>
   </form>
-    <div ng-repeat = "book in search.bookResults.array">
+  <p>Results<span class = "badge">{{search.bookResults.array.length}}</span></p>
+  <div ng-repeat = "book in search.bookResults.array">
+    <div class="well col-md-4">
       <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn[0]}}-M.jpg"
             alt="{{book.title}} Book Cover">
       <p>{{book.title}}</p>
-      <p>By {{book.author_name[0]}}</p>
+      <p>by {{book.author_name[0]}}</p>
       <p>Published In: {{book.first_publish_year}}</p>
+      <div class="btn-group">
+        <button type = "button" class = "btn btn-primary dropdown-toggle"
+                data-toggle = "dropdown" aria-haspopup = "true"
+                aria-expanded ="false">
+                Add to <span class = "caret"></span>
+            </button>
+        <ul class = "dropdown-menu">
+          <li><a href = "#">Spotlight</a></li>
+          <li><a href = "#">Archive</a></li>
+          <li><a href = "#">Night Stand</a></li>
+        </ul>
+      </div>
     </div>
+
+  </div>
 </div>
