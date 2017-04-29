@@ -5,5 +5,5 @@ myApp.controller('FeaturedBookController', ['$http', '$location', 'ClubService',
   var featured = this;
 
   featured.userObject = ClubService.userObject;
-  featured.logout = ClubService.logout;
+  // featured.logout = ClubService.logout;
 }]);

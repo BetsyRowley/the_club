@@ -5,12 +5,16 @@ myApp.controller('SearchController', ['$http', '$location', 'ClubService',
 
   var search = this;
   search.userObject = ClubService.userObject;
-  search.logout = ClubService.logout;
+  // search.logout = ClubService.logout;
 
   search.bookResults = {};
 
   search.findBook = function(book) {
-  $http.get('http://openlibrary.org/search.json?title=' + book).then(function(response) {
+      console.log(book);
+
+    $http.get('/search/' + book).then(function(response) {
+
+    // $http.get('http://openlibrary.org/search.json?title=' + book).then(function(response) {
     // console.log(response);
     // console.log(response.data.docs);
 

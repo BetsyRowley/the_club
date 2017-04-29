@@ -6,5 +6,5 @@ myApp.controller('DashboardController', ['$http', '$location', 'ClubService',
   var dashboard = this;
 
   dashboard.userObject = ClubService.userObject;
-  dashboard.logout = ClubService.logout;
+  // dashboard.logout = ClubService.logout;
 }]);

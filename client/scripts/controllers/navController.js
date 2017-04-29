@@ -4,6 +4,5 @@ myApp.controller('NavController', ['$http', '$location', 'ClubService',
   console.log('checking user');
 
   var nav = this;
-  // nav.userObject = ClubService.userObject;
   nav.logout = ClubService.logout;
 }]);
