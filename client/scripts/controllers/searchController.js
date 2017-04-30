@@ -23,4 +23,26 @@ myApp.controller('SearchController', ['$http', '$location', 'ClubService',
   });
 };
 
+search.items = [
+  'The first choice',
+  'And another choice for you',
+  'but wait! A Third!'
+];
+
+search.status = {
+  isopen: false
+};
+
+search.toggled = function(open) {
+  console.log('Dropdown is now: ', open);
+};
+
+search.toggleDropdown = function($event) {
+  $event.preventDefault();
+  $event.stopPropagation();
+  $event.status.isopen = !search.status.isopen;
+};
+
+search.appendtoEl = angular.element(document.querySelector('#dropdown-long-content'));
+
 }]);

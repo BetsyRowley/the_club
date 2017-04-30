@@ -11,9 +11,9 @@ router.get('/:book', function(req, res) {
   var query = 'http://openlibrary.org/search.json?title=' + book;
   console.log(query);
   request(query, function(error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:', body); // Print the HTML for the Google homepage.
+    // console.log('error:', error); // Print the error if one occurred
+    // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    // console.log('body:', body); // Print the HTML for the Google homepage.
     if(!error && response.statusCode == 200) {
       res.send(body);
     } else {

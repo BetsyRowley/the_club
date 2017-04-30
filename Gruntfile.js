@@ -26,8 +26,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'node_modules/bootstrap/dist',
           src: ['css/*.*',
-                'fonts/*.*',
-                'js/*.*'],
+                'fonts/*.*'],
           dest: 'server/public/vendors/bootstrap'
         },
         angular: {
@@ -45,6 +44,13 @@ module.exports = function(grunt) {
                 'angular-route.min.js',
                 'angular-route.min.js.map'],
           dest: 'server/public/vendors/angular-route'
+        },
+        angularUiBootstrap: {
+          expand: true,
+          cwd: 'node_modules/angular-ui-bootstrap/dist/',
+          src: ['ui-bootstrap-csp.css',
+                'ui-bootstrap.js'],
+          dest: 'server/public/vendors/angular-ui-bootstrap'
         }
       },
       watch: {
