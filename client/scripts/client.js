@@ -25,10 +25,10 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }]
       }
     })
-    .when('/featuredbook', {
-      templateUrl: '/views/templates/featuredbook.html',
-      controller: 'FeaturedBookController',
-      controllerAs: 'featured',
+    .when('/spotlight', {
+      templateUrl: '/views/templates/spotlight.html',
+      controller: 'SpotlightController',
+      controllerAs: 'spotlight',
       resolve: {
         getuser : ['ClubService', function(ClubService){
           return ClubService.getuser();
