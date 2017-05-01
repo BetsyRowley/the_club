@@ -20,7 +20,7 @@ myApp.controller('SearchController', ['$http', '$location', 'ClubService',
 //Posts book to db & takes use to the Spotlight view
 search.addToSpotlight = function(book) {
   console.log(book);
-  $http.post('/books/spotlight', book).then(function(response) {
+  $http.post('/spotlights', book).then(function(response) {
     // console.log(response);
     //direct to /spotlight
     $location.path('/spotlight');

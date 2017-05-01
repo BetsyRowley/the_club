@@ -6,7 +6,7 @@ var connection = require('../modules/connection');
 var pg = require('pg');
 
 // Handles POST request with new spotlight book
-router.post('/spotlight', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
   var saveSpotlight = {
     title: req.body.title,
@@ -35,6 +35,28 @@ router.post('/spotlight', function(req, res, next) {
         });
   });
 
+});
+
+// Handles GET request for all ACTIVE spotlight books
+router.get('/', function(req, res) {
+
+  pg.connect(connection, function(err, client, done) {
+    if(err) {
+      console.log("Error connecting to database: ", err);
+      res.sendStatus(500);
+    } else {
+    client.query("SELECT * from spotlight WHERE active = true;", function(queryError, result) {
+      done();
+      if(queryError) {
+        console.log('Error making query.');
+        res.sendStatus(500);
+      } else {
+        // console.log(result);
+        res.send(result.rows);
+        }
+      });
+    }
+  });
 });
 
 

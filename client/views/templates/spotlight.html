@@ -3,5 +3,16 @@
 
   <div>
     <h1>Spotlight Book</h1>
+    <div ng-init = "spotlight.getSpotlight()">
+        <div ng-repeat = "book in spotlight.activeResults.array">
+          <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn}}-L.jpg"
+                alt="{{book.title}} Book Cover">
+          <p>{{book.title}}</p>
+          <button type="button" name="Edit" class = "btn btn-default" aria-label = "true">
+              <span class = "glyphicon glyphicon-pencil" aria-hidden = "true"></span></button>
+          <button type="button" name="Delete" class = "btn btn-default">Delete</button>
+        </div>
+    </div>
+
   </div>
 </div>

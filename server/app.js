@@ -13,7 +13,7 @@ var index = require('./routes/index.js');
 var user = require('./routes/user.js');
 var register = require('./routes/register.js');
 var search = require('./routes/search.js');
-var books = require('./routes/books.js');
+var spotlights = require('./routes/spotlights.js');
 
 //App Config
 app.set('port', process.env.PORT || 8000);
@@ -42,7 +42,7 @@ app.use(passport.session());
 app.use('/register', register);
 app.use('/user', user);
 app.use('/search', search);
-app.use('/books', books);
+app.use('/spotlights', spotlights);
 app.use('/', index);
 
 //Listen
