@@ -18,4 +18,15 @@ myApp.controller('SpotlightController', ['$http', '$location', 'ClubService',
       });
   };
 
-}]);
+  //Deletes a spotlight book from the db
+  spotlight.deleteSpotlight = function(book) {
+    console.log(book);
+    var id = book.id;
+    console.log(id);
+    $http.delete('/spotlights/' + id).then(function(response) {
+      console.log("Deletes " + id);
+      spotlight.getSpotlight();
+    });
+  };
+
+}]); //End of Controller
