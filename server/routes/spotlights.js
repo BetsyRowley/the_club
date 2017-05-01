@@ -82,5 +82,11 @@ console.log(req.params.id);
   });
 }); //Ends DELETE request
 
+//Handles PUT request
+router.put('/:book', function(req, res, next) {
+  console.log(req.body.title);
+  console.log(req.params.title);
+}); //end of PUT request
+
 
 module.exports = router;

@@ -33,19 +33,21 @@
             <input type="radio" ng-model="spotlight.feature.book.active" value = "false" /> No
         </div>
         <div>
-            <label for="selectedby">Selected By: </label>
-            <input type="text" ng-model="spotlight.book.selected_by" />
+            <label for="selected_by">Selected By: </label>
+            <input type="text" ng-model="spotlight.feature.book.selected_by" />
         </div>
         <div>
             <label for="meeting_date">Next Meeting Date:</label>
-            <input type="date" ng-model="spotlight.book.meeting_date" />
+            <input type="date" ng-model="spotlight.feature.book.meeting_date" />
         </div>
         <div>
             <label for="notes">Notes:</label>
-            <input type="text" ng-model="spotlight.book.notes" />
+            <input type="text" ng-model="spotlight.feature.book.notes" />
         </div>
-        <input class="btn btn-primary" type="submit" name="submit" value="Edit" />
-        <a href="#spotlight">Cancel</a>
+        <input class="btn btn-primary" type="submit" name="submit" value="Submit" />
+        <!-- <a href="#spotlight">Cancel</a> -->
+        <button type="button" name="cancel" class = "btn btn-default"
+                ng-click = "spotlight.cancelEdit()">Cancel</button>
       </form>
     </div>
 

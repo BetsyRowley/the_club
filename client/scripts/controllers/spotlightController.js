@@ -37,15 +37,20 @@ myApp.controller('SpotlightController', ['$http', '$location', 'ClubService',
     spotlight.editing = true;
     console.log(book);
     spotlight.feature.book = angular.copy(book); // Angular copy
+  };
 
+  //Cancels edit
+  spotlight.cancelEdit = function() {
+    // console.log('cancel clicked');
+    spotlight.editing = false;
   };
 
   //Edits a spotlight book
-  spotlight.editSpotlight = function(book) {
-    console.log(book);
-//how to send data changes
+  spotlight.editSpotlight = function() {
+    console.log(spotlight.feature.book);
+    var book = spotlight.feature.book;
     $http.put('/spotlights/' + book).then(function(response) {
-      console.log('Edits ', book);
+      console.log('Saves Edits ', book);
       spotlight.getSpotlight();
       spotlight.editing = false;
     });
