@@ -21,8 +21,9 @@ router.post('/', function(req, res, next) {
       console.log('Error connecting: ', err);
       next(err);
     }
-    client.query('INSERT INTO spotlight (title, author, isbn, publishedYear) VALUES ($1, $2, $3, $4) RETURNING id',
-      [saveSpotlight.title, saveSpotlight.author, saveSpotlight.isbn, saveSpotlight.publishedYear],
+    client.query('INSERT INTO spotlight (title, author, isbn, publishedYear)' +
+                  'VALUES ($1, $2, $3, $4) RETURNING id',
+  [saveSpotlight.title, saveSpotlight.author, saveSpotlight.isbn, saveSpotlight.publishedYear],
         function (err, result) {
           client.end();
 
@@ -83,9 +84,34 @@ console.log(req.params.id);
 }); //Ends DELETE request
 
 //Handles PUT request
-router.put('/:book', function(req, res, next) {
-  console.log(req.body.title);
-  console.log(req.params.title);
+router.put('/', function(req, res) {
+  console.log(req.body);
+  var title = req.body.title;
+  var author = req.body.author;
+  var active = req.body.active;
+  var selected_by = req.body.selected_by;
+  var meeting_date = req.body.meeting_date;
+  var notes = req.body.notes;
+  var id = req.body.id;
+  pg.connect(connection, function(err, client, done) {
+    if(err) {
+      console.log('Error connecting to database: ', err);
+      res.sendStatus(500);
+    } else {
+      client.query('UPDATE spotlight SET (title = $1, author = $2, active = $3', +
+                    'selected_by = $4, meeting_date = $5, notes = $6) WHERE id = $7;',
+                  [title, author, active, selected_by, meeting_date, notes, id],
+                function(queryError, result) {
+                done();
+                if(queryError) {
+                  console.log('Error making query.');
+                  res.sendStatus(500);
+                }  else {
+                  res.sendStatus(200);
+                }
+                });
+    }
+  });
 }); //end of PUT request
 
 
