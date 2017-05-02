@@ -8,11 +8,11 @@ var pg = require('pg');
 router.post('/', function(req, res) {
 
   var saveMessage = {
-    MemberID: req.body.id,
+    MemberID: req.body.memberId,
     text: req.body.text,
-    timestamp: req.body.timestamp
+    date: new Date()
   };
-  console.log('New Message Saved:', saveMessage);
+  console.log('New Message:', saveMessage);
 
   pg.connect(connection, function(err, client, done) {
     if(err) {
@@ -20,9 +20,9 @@ router.post('/', function(req, res) {
       console.log('Error connecting: ', err);
       res.sendStatus(500);
     }
-    client.query('INSERT INTO messages ("MemberID", "Message", "Timestamp")' +
+    client.query('INSERT INTO messages ("MemberID", "Message", "date")' +
                   'VALUES ($1, $2, $3) RETURNING "MessageID"',
-  [saveMessage.MemberID, saveMessage.text, saveMessage.timestamp],
+  [saveMessage.MemberID, saveMessage.text, saveMessage.date],
         function (err, result) {
           done();
 
