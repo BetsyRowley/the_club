@@ -25,9 +25,10 @@ dashboard.getMessages = function() {
     console.log(dashboard.message);
     $http.post('/messages', dashboard.message).then(function(response) {
       console.log(response);
+      dashboard.message = {};
+      dashboard.getMessages();
     });
-    dashboard.message = {};
-    dashboard.getMessages();
+
   }; //ends POST request
 
 
