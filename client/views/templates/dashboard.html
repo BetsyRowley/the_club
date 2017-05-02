@@ -9,9 +9,9 @@
         <h3 class = "panel-title">Chapter Chatter</h3>
       </div>
       <div class="panel-body" ng-init = "dashboard.getMessages()">
-        Panel Content - Message History Goes Here
+        <!-- Add scroll to the panel w/ bootstrap ui-->
         <div ng-repeat = "message in dashboard.allMessages.array">
-          <p>{{message.date}}</p>
+          <p>{{message.date | date}}</p>
           <p><b>{{message.first}}: </b>{{message.Message}}</p>
         </div>
       </div>

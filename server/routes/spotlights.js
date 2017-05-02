@@ -49,7 +49,8 @@ router.get('/', function(req, res) {
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-    client.query('SELECT * from spotlight WHERE active = true;', function(queryError, result) {
+    client.query('SELECT * from spotlight WHERE active = true;',
+      function(queryError, result) {
       done();
       if(queryError) {
         console.log('Error making query.');
@@ -97,20 +98,25 @@ router.put('/', function(req, res) {
   var meeting_date = req.body.meeting_date;
   var notes = req.body.notes;
   var id = req.body.id;
+  // console.log(id);
 
   pg.connect(connection, function(err, client, done) {
     if(err) {
+      console.log('in pg.connect if(err)');
       done();
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-      client.query('UPDATE spotlight SET (title = $1, author = $2, active = $3', +
-                    'selected_by = $4, meeting_date = $5, notes = $6) WHERE id = $7;',
+      console.log('in pg.connect else');
+      client.query('UPDATE "spotlight" SET "title"= $1, "author" = $2,' +
+                    '"active" = $3, "selected_by" = $4, "meeting_date" = $5,' +
+                     '"notes" = $6 WHERE "id" = $7;',
                   [title, author, active, selected_by, meeting_date, notes, id],
           function(queryError, result) {
+            console.log('right after client.query before done and if statement');
             done();
             if(queryError) {
-              console.log('Error making query');
+              console.log('Error making query', queryError);
               res.sendStatus(500);
             } else {
               console.log(result);
