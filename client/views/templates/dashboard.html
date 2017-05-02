@@ -8,8 +8,12 @@
       <div class="panel-heading">
         <h3 class = "panel-title">Chapter Chatter</h3>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" ng-init = "dashboard.getMessages()">
         Panel Content - Message History Goes Here
+        <div ng-repeat = "message in dashboard.allMessages.array">
+          <p>{{message.date}}</p>
+          <p><b>{{message.first}}: </b>{{message.Message}}</p>
+        </div>
       </div>
       <div class="panel-footer">
         <form ng-submit="dashboard.postMessage()">

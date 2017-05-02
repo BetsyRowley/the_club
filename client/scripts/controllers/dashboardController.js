@@ -6,7 +6,15 @@ myApp.controller('DashboardController', ['$http', '$location', 'ClubService',
   var dashboard = this;
   dashboard.userObject = ClubService.userObject;
   dashboard.message = {};
+  dashboard.allMessages = {};
 
+//GET all messages
+dashboard.getMessages = function() {
+  $http.get('/messages').then(function(response) {
+    dashboard.allMessages.array = response.data;
+    console.log('Messages back from db: ', dashboard.allMessages.array);
+  });
+}; //Ends GET request
 
 
   //POSTs new message
@@ -15,13 +23,11 @@ myApp.controller('DashboardController', ['$http', '$location', 'ClubService',
     // dashboard.message.timestamp = Date.now();
     dashboard.message.memberId = dashboard.userObject.id;
     console.log(dashboard.message);
-
     $http.post('/messages', dashboard.message).then(function(response) {
       console.log(response);
-      dashboard.message = {};
     });
-
-
+    dashboard.message = {};
+    dashboard.getMessages();
   }; //ends POST request
 
 

@@ -5,6 +5,32 @@ var path = require('path');
 var connection = require('../modules/connection');
 var pg = require('pg');
 
+//GETs all messages
+router.get('/', function(req, res) {
+
+  pg.connect(connection, function(err, client, done) {
+    if(err) {
+      done();
+      console.log('Error connecting to database: ', err);
+      res.sendStatus(500);
+    } else {
+    client.query('SELECT "Message", "MessageID", "date", "first"' +
+                  'FROM messages, users WHERE "MemberID" = "id" ORDER BY "MessageID" ASC;',
+                  function(queryError, result) {
+      done();
+      if(queryError) {
+        console.log('Error making query.');
+        res.sendStatus(500);
+      } else {
+        // console.log(result);
+        res.send(result.rows);
+        }
+      });
+    }
+  });
+}); //Ends GET request
+
+//POSTs new message to db
 router.post('/', function(req, res) {
 
   var saveMessage = {
@@ -34,7 +60,6 @@ router.post('/', function(req, res) {
           }
         });
   });
-
 }); //Ends POST request
 
 module.exports = router;
