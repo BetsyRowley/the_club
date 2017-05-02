@@ -13,10 +13,12 @@ myApp.controller('DashboardController', ['$http', '$location', 'ClubService',
   dashboard.postMessage = function() {
     console.log(dashboard.message);
     dashboard.message.timestamp = Date.now();
-    dashboard.message.id = dashboard.userObject.id;
-    console.log(dashboard.message
+    dashboard.message.memberId = dashboard.userObject.id;
+    console.log(dashboard.message);
 
-    $http.post('/messages')  
+    $http.post('/messages', dashboard.message).then(function(response) {
+      console.log(response);
+    });
 
 
   }; //ends POST request
