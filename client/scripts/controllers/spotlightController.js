@@ -49,7 +49,7 @@ myApp.controller('SpotlightController', ['$http', '$location', 'ClubService',
   spotlight.editSpotlight = function() {
     console.log(spotlight.feature.book);
     var book = spotlight.feature.book;
-    $http.put('/spotlights/', book).then(function(response) {
+    $http.put('/spotlights', book).then(function(response) {
       console.log('Saves Edits ', book);
       spotlight.getSpotlight();
       spotlight.editing = false;

@@ -6,7 +6,7 @@ var connection = require('../modules/connection');
 var pg = require('pg');
 
 // Handles POST request with new spotlight book
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
 
   var saveSpotlight = {
     title: req.body.title,
@@ -18,20 +18,22 @@ router.post('/', function(req, res, next) {
 
   pg.connect(connection, function(err, client, done) {
     if(err) {
+      done();
       console.log('Error connecting: ', err);
-      next(err);
+      res.sendStatus(500);
     }
     client.query('INSERT INTO spotlight (title, author, isbn, publishedYear)' +
                   'VALUES ($1, $2, $3, $4) RETURNING id',
   [saveSpotlight.title, saveSpotlight.author, saveSpotlight.isbn, saveSpotlight.publishedYear],
         function (err, result) {
-          client.end();
+          done();//Chris added & removed next
+          // client.end(); // necessary??
 
           if(err) {
             console.log('Error inserting data: ', err);
-            next(err);
+            res.sendStatus(500);
           } else {
-            res.redirect('/');
+            res.sendStatus(201);
           }
         });
   });
@@ -43,6 +45,7 @@ router.get('/', function(req, res) {
 
   pg.connect(connection, function(err, client, done) {
     if(err) {
+      done();
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
@@ -65,6 +68,7 @@ router.delete('/:id', function(req, res) {
 console.log(req.params.id);
   pg.connect(connection, function(err, client, done) {
     if(err) {
+      done();
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
@@ -93,23 +97,26 @@ router.put('/', function(req, res) {
   var meeting_date = req.body.meeting_date;
   var notes = req.body.notes;
   var id = req.body.id;
+
   pg.connect(connection, function(err, client, done) {
     if(err) {
+      done();
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
       client.query('UPDATE spotlight SET (title = $1, author = $2, active = $3', +
                     'selected_by = $4, meeting_date = $5, notes = $6) WHERE id = $7;',
                   [title, author, active, selected_by, meeting_date, notes, id],
-                function(queryError, result) {
-                done();
-                if(queryError) {
-                  console.log('Error making query.');
-                  res.sendStatus(500);
-                }  else {
-                  res.sendStatus(200);
-                }
-                });
+          function(queryError, result) {
+            done();
+            if(queryError) {
+              console.log('Error making query');
+              res.sendStatus(500);
+            } else {
+              console.log(result);
+              res.sendStatus(200);
+            }
+          });
     }
   });
 }); //end of PUT request

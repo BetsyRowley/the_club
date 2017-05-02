@@ -4,7 +4,24 @@ myApp.controller('DashboardController', ['$http', '$location', 'ClubService',
   console.log('checking user');
 
   var dashboard = this;
-
   dashboard.userObject = ClubService.userObject;
-  // dashboard.logout = ClubService.logout;
+  dashboard.message = {};
+
+
+
+  //POSTs new message
+  dashboard.postMessage = function() {
+    console.log(dashboard.message);
+    dashboard.message.timestamp = Date.now();
+    dashboard.message.id = dashboard.userObject.id;
+    console.log(dashboard.message
+
+    $http.post('/messages')  
+
+
+  }; //ends POST request
+
+
+  //GETs all messages
+
 }]);

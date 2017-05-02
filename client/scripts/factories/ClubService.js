@@ -12,7 +12,8 @@ myApp.factory('ClubService', ['$http', '$location', function($http, $location){
               // user has a current session on the server
               userObject.userName = response.data.username;
               userObject.first = response.data.first;
-              console.log('User Data: ', userObject.username);
+              userObject.id = response.data.id;
+              console.log('User Data: ', userObject.userName);
           } else {
               // user has no session, bounce them back to the login page
               $location.path("/home");
