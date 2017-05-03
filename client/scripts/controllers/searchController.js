@@ -5,15 +5,16 @@ myApp.controller('SearchController', ['$http', '$location', 'ClubService',
 
   var search = this;
   search.userObject = ClubService.userObject;
-
+  search.book = '';
   search.bookResults = {};
 
 //Takes the title entered by user, searches Open Library Books API & returns results
   search.findBook = function(book) {
       console.log(book);
       $http.get('/search/' + book).then(function(response) {
-      search.bookResults.array = response.data.docs;
+      search.bookResults.array = angular.copy(response.data.docs);
       console.log(search.bookResults);
+      search.book = '';
   });
 };
 

@@ -20,7 +20,6 @@ dashboard.getMessages = function() {
   //POSTs new message
   dashboard.postMessage = function() {
     console.log(dashboard.message);
-    // dashboard.message.timestamp = Date.now();
     dashboard.message.memberId = dashboard.userObject.id;
     console.log(dashboard.message);
     $http.post('/messages', dashboard.message).then(function(response) {

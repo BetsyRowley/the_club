@@ -5,9 +5,9 @@
 
   <form>
     <input type="text" name="book" placeholder="Enter a book title"
-              ng-model = "book">
+              ng-model = "search.book">
     <button type="button" name="search" class = "btn btn-primary"
-              ng-click = "search.findBook(book)">Search</button>
+              ng-click = "search.findBook(search.book)">Search</button>
   </form>
 
   <p>Filter by author or date<input type = "text" ng-model = "test"></p>

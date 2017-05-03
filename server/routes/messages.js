@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     } else {
     client.query('SELECT "Message", "MessageID", "date", "first"' +
-                  'FROM messages, users WHERE "MemberID" = "id" ORDER BY "MessageID" ASC;',
+                  'FROM messages, users WHERE "MemberID" = "id" ORDER BY "MessageID" DESC;',
                   function(queryError, result) {
       done();
       if(queryError) {

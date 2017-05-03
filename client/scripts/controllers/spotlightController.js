@@ -36,7 +36,7 @@ myApp.controller('SpotlightController', ['$http', '$location', 'ClubService',
     console.log('edit button clicked');
     spotlight.editing = true;
     console.log(book);
-    spotlight.feature.book = angular.copy(book); // Angular copy
+    spotlight.feature.book = angular.copy(book);
   };
 
   //Cancels edit
