@@ -44,3 +44,9 @@
   width: 100px;
   display: inline-block;
 }
+
+.fixed-panel {
+  min-height: 400px;
+  max-height: 400px;
+  overflow-y: scroll;
+}

@@ -2,13 +2,14 @@
 
     <header ng-include="'/views/partials/nav.html'"></header>
 
-    <h1 id="welcome" class="lead">Welcome to The Club, {{dashboard.userObject.first}}!</h1>
+    <h1 id="welcome" class="lead">Welcome to The Club,
+            {{dashboard.userObject.first}}!</h1>
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class = "panel-title">Chapter Chatter</h3>
+        <h2 class = "panel-title">Chapter Chatter</h2>
       </div>
-      <div class="panel-body" ng-init = "dashboard.getMessages()">
+      <div class="panel-body fixed-panel" ng-init = "dashboard.getMessages()">
         <!-- Add scroll to the panel w/ bootstrap ui-->
         <div ng-repeat = "message in dashboard.allMessages.array">
           <p>{{message.date | date}}</p>
@@ -19,9 +20,11 @@
         <form ng-submit="dashboard.postMessage()">
           <div>
               <!-- <label for="message">Message</label> -->
-              <input type="text" ng-model="dashboard.message.text" placeholder = "Enter your message"/>
+              <input type="text" ng-model="dashboard.message.text"
+                      placeholder = "Enter your message"/>
           </div>
-          <input class="btn btn-primary" type="submit" name="submit" value="Post Message" />
+          <input class="btn btn-primary" type="submit"
+                  name="submit" value="Post Message" />
           <!-- <a href="#home">Cancel</a> -->
         </form>
       </div>
