@@ -1,7 +1,9 @@
+<header ng-include="'/views/partials/header.html'"></header>
+
 <div class="container">
-  <h1 class="lead">Log in to the Club</h1>
-    <h1 class="lead alert alert-danger" role="alert" ng-if="login.message != ''">{{login.message}}</h2>
-    <form ng-submit="login.login()">
+  <h1 class="lead home">Enter The Club</h1>
+    <h1 class="lead home alert alert-danger" role="alert" ng-if="login.message != ''">{{login.message}}</h2>
+    <form class ="lead home" ng-submit="login.login()">
       <div>
           <label for="username">Email:</label>
           <input type="text" ng-model="login.user.username" />
@@ -12,7 +14,8 @@
       </div>
       <div>
           <input class="btn btn-primary" type="submit" name="submit" value="Log In" />
-          <a href="#register">Create a New User</a>
+          <br>
+          <a href="#register">Not a member? Join The Club.</a>
       </div>
     </form>
 </div>

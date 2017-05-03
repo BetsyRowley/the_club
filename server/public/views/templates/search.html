@@ -1,6 +1,7 @@
+<header ng-include="'/views/partials/nav.html'"></header>
+
 <div class="container">
 
-  <header ng-include="'/views/partials/nav.html'"></header>
   <p>Search Open Libary Books API</p>
 
   <form>
@@ -8,6 +9,9 @@
               ng-model = "search.book">
     <button type="button" name="search" class = "btn btn-primary"
               ng-click = "search.findBook(search.book)">Search</button>
+
+
+
   </form>
 
   <p>Filter by author or date<input type = "text" ng-model = "test"></p>
@@ -20,8 +24,19 @@
       <p>{{book.title}}</p>
       <p>by {{book.author_name[0]}}</p>
       <p>Published In: {{book.first_publish_year}}</p>
-      <button class = "btn btn-warning" ng-click = "search.addToSpotlight(book)">
-            Add to Spotlight</button>
+      <!-- <button class = "btn btn-warning" ng-click = "search.addToSpotlight(book)">
+            Add to Spotlight</button> -->
+
+      <div class="btn-group" uib-dropdown is-open="status.isopen">
+        <button id="single-button" type="button" class="btn btn-warning" uib-dropdown-toggle ng-disabled="disabled">
+          Add to <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+          <li role="menuitem" ng-click = "search.addToSpotlight(book)"><a href="#">Spotlight</a></li>
+          <li role="menuitem" ng-click = "search.addToNightStand(book)"><a href="#">Night Stand</a></li>
+          <li role="menuitem"><a href="#">Archive</a></li>
+        </ul>
+      </div>
 
   </div>
 </div>
