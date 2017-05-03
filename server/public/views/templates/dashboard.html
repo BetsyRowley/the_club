@@ -13,7 +13,7 @@
         <!-- Add scroll to the panel w/ bootstrap ui-->
         <div ng-repeat = "message in dashboard.allMessages.array">
           <p>{{message.date | date}}</p>
-          <p><b>{{message.first}}: </b>{{message.Message}}</p>
+          <p><b>{{message.first}}: </b>{{message.Message | linky}}</p>
         </div>
       </div>
       <div class="panel-footer">

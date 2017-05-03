@@ -45,6 +45,14 @@ module.exports = function(grunt) {
                 'angular-route.min.js.map'],
           dest: 'server/public/vendors/angular-route'
         },
+        angularSanitize: {
+          expand: true,
+          cwd: 'node_modules/angular-sanitize/',
+          src: ['angular-sanitize.js',
+                'angular-sanitize.min.js',
+                'angular-sanitize.min.js.map'],
+          dest: 'server/public/vendors/angular-sanitize'
+      },
         angularUiBootstrap: {
           expand: true,
           cwd: 'node_modules/angular-ui-bootstrap/dist/',
