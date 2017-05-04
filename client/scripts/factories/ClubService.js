@@ -13,6 +13,7 @@ myApp.factory('ClubService', ['$http', '$location', function($http, $location){
               userObject.userName = response.data.username;
               userObject.first = response.data.first;
               userObject.id = response.data.id;
+              userObject.image = response.data.image;
               console.log('User Data: ', userObject.userName);
           } else {
               // user has no session, bounce them back to the login page
