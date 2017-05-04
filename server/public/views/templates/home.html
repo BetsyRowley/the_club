@@ -1,6 +1,6 @@
 <header ng-include="'/views/partials/header.html'"></header>
 
-<div class="container">
+<div class="container entry">
   <h1 class="lead home">Enter The Club</h1>
     <h1 class="lead home alert alert-danger" role="alert" ng-if="login.message != ''">{{login.message}}</h2>
     <form class ="lead home" ng-submit="login.login()">
