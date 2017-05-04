@@ -12,9 +12,23 @@
       </div>
       <div class="panel-body fixed-panel" ng-init = "dashboard.getMessages()">
         <div ng-repeat = "message in dashboard.allMessages.array">
+          <div class="media">
+            <div class="media-left">
+              <!-- <a href="#"> -->
+                <img class = "media-object messagePic img-rounded" ng-src="{{message.image}}" alt="profile picture">
+              <!-- </a> -->
+            </div>
+            <div class="media-body">
+              <h4 class = "media-heading"><b>{{message.first}} </b>{{message.timestamp | date: 'MMM d, y h:mma'}}</h4>
+              <p ng-bind-html="message.Message | linky">{{message.Message}}</p>
+            </div>
+          </div>
+
+        </div>
+        <!-- <div ng-repeat = "message in dashboard.allMessages.array">
             <p><b>{{message.first}} </b>{{message.timestamp | date: 'MMM d, y h:mma'}}</p>
             <p ng-bind-html="message.Message | linky">{{message.Message}}</p>
-        </div>
+        </div> -->
       </div>
       <div class="panel-footer">
         <form ng-submit="dashboard.postMessage()">

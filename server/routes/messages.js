@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-    client.query('SELECT "Message", "MessageID", "timestamp", "first"' +
+    client.query('SELECT "Message", "MessageID", "timestamp", "first", "image"' +
                   'FROM messages, users WHERE "MemberID" = "id" ORDER BY "MessageID" DESC;',
                   function(queryError, result) {
       done();
