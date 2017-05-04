@@ -56,6 +56,17 @@
   height: 50px;
 }
 
+.messageDate {
+  font-size: 15px;
+  color: gray;
+  padding: 5px;
+}
+
+.panel-title {
+  text-align: center;
+  font-size: 30px;
+}
+
 /*body {
   background-image: url('/styles/books-1655783_1920.jpg');
   width: 100%;

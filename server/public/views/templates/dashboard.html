@@ -4,7 +4,6 @@
 
     <h1 id="welcome" class="lead">Welcome to The Club,
             {{dashboard.userObject.first}}!</h1>
-    <!-- <img ng-src = "{{dashboard.userObject.image}}" alt ="user profile picture">         -->
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -15,25 +14,24 @@
           <div class="media">
             <div class="media-left">
               <!-- <a href="#"> -->
-                <img class = "media-object messagePic img-rounded" ng-src="{{message.image}}" alt="profile picture">
+                <img class = "media-object messagePic img-rounded"
+                      ng-src="{{message.image}}" alt="profile picture">
               <!-- </a> -->
             </div>
             <div class="media-body">
-              <h4 class = "media-heading"><b>{{message.first}} </b>{{message.timestamp | date: 'MMM d, y h:mma'}}</h4>
+              <h4 class = "media-heading"><b>{{message.first}}</b>
+                <span class = "messageDate">{{message.timestamp | date: 'MMM d, y h:mma'}}</span></h4>
               <p ng-bind-html="message.Message | linky">{{message.Message}}</p>
             </div>
           </div>
 
         </div>
-        <!-- <div ng-repeat = "message in dashboard.allMessages.array">
-            <p><b>{{message.first}} </b>{{message.timestamp | date: 'MMM d, y h:mma'}}</p>
-            <p ng-bind-html="message.Message | linky">{{message.Message}}</p>
-        </div> -->
       </div>
       <div class="panel-footer">
         <form ng-submit="dashboard.postMessage()">
-          <div>
-              <input type="text" ng-model="dashboard.message.text"
+          <div class = "form-group">
+              <input class = "form-control" type="text"
+                      ng-model="dashboard.message.text"
                       placeholder = "Enter your message"/>
           </div>
           <input class="btn btn-primary" type="submit"
