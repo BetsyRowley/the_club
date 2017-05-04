@@ -19,8 +19,6 @@ dashboard.getMessages = function() {
 
   //POSTs new message
   dashboard.postMessage = function() {
-    console.log('post clicked');
-    console.log(dashboard.message);
     dashboard.message.memberId = dashboard.userObject.id;
     console.log(dashboard.message);
     $http.post('/messages', dashboard.message).then(function(response) {
