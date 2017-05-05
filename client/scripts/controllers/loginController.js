@@ -24,7 +24,7 @@ myApp.controller('LoginController', ['$http', '$location', 'ClubService',
             $location.path('/dashboard');
           } else {
             console.log('failure: ', response);
-            login.message = "Wrong!!";
+            login.message = "Either your email or password were incorrect, please try again!";
           }
         });
       }

@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-var connection = require('../modules/connection');
-var pg = require('pg');
+var pool = require('../modules/pool');
 
 // Handles POST request with new spotlight book
 router.post('/', function(req, res) {
@@ -16,7 +15,7 @@ router.post('/', function(req, res) {
   };
   console.log('new Spotlight:', saveSpotlight);
 
-  pg.connect(connection, function(err, client, done) {
+  pool.connect(function(err, client, done) {
     if(err) {
       done();
       console.log('Error connecting: ', err);
@@ -43,7 +42,7 @@ router.post('/', function(req, res) {
 // Handles GET request for all ACTIVE spotlight books
 router.get('/', function(req, res) {
 
-  pg.connect(connection, function(err, client, done) {
+  pool.connect(function(err, client, done) {
     if(err) {
       done();
       console.log('Error connecting to database: ', err);
@@ -67,7 +66,7 @@ router.get('/', function(req, res) {
 //Handles DELETE request
 router.delete('/:id', function(req, res) {
 console.log(req.params.id);
-  pg.connect(connection, function(err, client, done) {
+    pool.connect(function(err, client, done) {
     if(err) {
       done();
       console.log('Error connecting to database: ', err);
@@ -100,7 +99,7 @@ router.put('/', function(req, res) {
   var id = req.body.id;
   // console.log(id);
 
-  pg.connect(connection, function(err, client, done) {
+    pool.connect(function(err, client, done) {
     if(err) {
       console.log('in pg.connect if(err)');
       done();

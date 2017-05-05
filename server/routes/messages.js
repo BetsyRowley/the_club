@@ -2,13 +2,12 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-var connection = require('../modules/connection');
-var pg = require('pg');
+var pool = require('../modules/pool');
 
 //GETs all messages
 router.get('/', function(req, res) {
 
-  pg.connect(connection, function(err, client, done) {
+  pool.connect(function(err, client, done) {
     if(err) {
       done();
       console.log('Error connecting to database: ', err);
@@ -41,7 +40,7 @@ router.post('/', function(req, res) {
   };
   console.log('New Message:', saveMessage);
 
-  pg.connect(connection, function(err, client, done) {
+  pool.connect(function(err, client, done) {
     if(err) {
       done();
       console.log('Error connecting: ', err);

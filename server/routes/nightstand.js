@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
-var connection = require('../modules/connection');
-var pg = require('pg');
+var pool = require('../modules/pool');
 
 console.log('in the night stand router');
 // Handles POST request with new night stand book
@@ -17,7 +16,7 @@ console.log('in the night stand post router');
   };
   console.log('new Nightstand:', saveNightStand);
 
-  pg.connect(connection, function(err, client, done) {
+  pool.connect(function(err, client, done) {
     if(err) {
       done();
       console.log('Error connecting: ', err);
