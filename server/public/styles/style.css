@@ -36,9 +36,9 @@
     background-color: #f8f8f8;
 }
 
-.btn-danger{
+/*.btn-danger{
     margin-left: 10px;
-}
+}*/
 
 .navbar > ul > li{
   width: 100px;
@@ -52,7 +52,7 @@
 }
 
 .messagePic {
-  width: 50px;
+  width: 60px;
   height: 50px;
 }
 

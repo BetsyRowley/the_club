@@ -18,7 +18,7 @@
   <p>Results<span class = "badge">{{search.bookResults.array.length}}</span></p>
 
   <div ng-repeat = "book in search.bookResults.array | filter : test">
-    <div class="well col-md-3">
+    <div class="well col-md-3" id = "result">
       <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn[0]}}-M.jpg"
             alt="{{book.title}} Book Cover">
       <p>{{book.title}}</p>
