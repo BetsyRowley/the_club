@@ -8,9 +8,43 @@
     color: #DDDDDD;
 }
 
+#comments{
+    font-size: 20px;
+}
 
 .container p{
     margin-top : 14px;
+}
+
+.book {
+  text-align: center;
+}
+
+.booktitle {
+  font-size: 28px;
+  text-align: center;
+}
+
+.fixed-panel {
+  min-height: 500px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+#meeting {
+  font-size: 34px;
+  text-align: center;
+}
+
+.messagePic {
+  width: 60px;
+  height: 50px;
+}
+
+.messageDate {
+  font-size: 15px;
+  color: gray;
+  padding: 5px;
 }
 
 .message {
@@ -39,26 +73,13 @@
   font-size: 20px;
 }
 
-.fixed-panel {
-  min-height: 500px;
-  max-height: 500px;
-  overflow-y: scroll;
-}
-
-.messagePic {
-  width: 60px;
-  height: 50px;
-}
-
-.messageDate {
-  font-size: 15px;
-  color: gray;
-  padding: 5px;
-}
-
 .panel-title {
   text-align: center;
   font-size: 30px;
+}
+
+.panel {
+  margin-top: 20px;
 }
 
 /*body {
@@ -69,19 +90,7 @@
 }*/
 
 
-
-/*.entry {
-  margin: auto;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 40%;
-  height: 40%;
-  border-top-left-radius: white;
-}*/
-
-#spotTitle {
+#selectedby {
+  font-size: 26px;
   text-align: center;
 }
