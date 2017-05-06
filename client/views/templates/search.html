@@ -1,42 +1,43 @@
 <header ng-include="'/views/partials/nav.html'"></header>
 
 <div class="container">
-
-  <p>Search Results Courtesy of Open Library Books API</p>
-
-  <form>
-    <input type="text" name="book" placeholder="Enter a book title"
-              ng-model = "search.book">
-    <button type="button" name="search" class = "btn btn-primary"
-              ng-click = "search.findBook(search.book)">Search</button>
-
-
-
-  </form>
-
-  <p>Filter by author or date<input type = "text" ng-model = "test"></p>
-  <p>Results<span class = "badge">{{search.bookResults.array.length}}</span></p>
-
-  <div ng-repeat = "book in search.bookResults.array | filter : test">
-    <div class="well col-md-3" id = "result">
-      <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn[0]}}-M.jpg"
-            alt="{{book.title}} Book Cover">
-      <p>{{book.title}}</p>
-      <p>by {{book.author_name[0]}}</p>
-      <p>Published In: {{book.first_publish_year}}</p>
-      <!-- <button class = "btn btn-warning" ng-click = "search.addToSpotlight(book)">
-            Add to Spotlight</button> -->
-
-      <div class="btn-group" uib-dropdown is-open="status.isopen">
-        <button id="single-button" type="button" class="btn btn-warning" uib-dropdown-toggle ng-disabled="disabled">
-          Add to <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-          <li role="menuitem" ng-click = "search.addToSpotlight(book)"><a href="#">Spotlight</a></li>
-          <li role="menuitem" ng-click = "search.addToNightStand(book)"><a href="#">Night Stand</a></li>
-          <li role="menuitem"><a href="#">Archive</a></li>
-        </ul>
-      </div>
-
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h2 class = "panel-title">Find Your Book</h2>
   </div>
+  <div class="panel-body fixed-panel2">
+    <form>
+      <input type="text" name="book" placeholder="Enter a book title"
+                ng-model = "search.book">
+      <button type="button" name="search" class = "btn btn-primary"
+                ng-click = "search.findBook(search.book)">Search</button>
+      Filter Results: <input type = "text" ng-model = "test"></p>
+      <p>Results<span class = "badge">{{search.bookResults.array.length}}</span></p>
+    </form>
+
+    <div ng-repeat = "book in search.bookResults.array | filter : test">
+      <div class="well col-md-3 result">
+        <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn[0]}}-M.jpg"
+              alt="{{book.title}} Book Cover">
+        <p>{{book.title}}</p>
+        <p>by {{book.author_name[0]}}</p>
+        <p>Published In: {{book.first_publish_year}}</p>
+
+        <div class="btn-group" uib-dropdown is-open="status.isopen">
+          <button id="single-button" type="button" class="btn btn-warning" uib-dropdown-toggle ng-disabled="disabled">
+            Add to <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+            <li role="menuitem" ng-click = "search.addToSpotlight(book)"><a href="#">Spotlight</a></li>
+            <li role="menuitem" ng-click = "search.addToNightStand(book)"><a href="#">Night Stand</a></li>
+            <li role="menuitem"><a href="#">Archive</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+      <p id = "api">Search Results Courtesy of <a href="https://openlibrary.org/">Open Library Books API.</a></p>
+  </div>
+</div>
 </div>
