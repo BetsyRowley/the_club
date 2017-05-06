@@ -25,8 +25,7 @@ router.post('/', function(req, res) {
                   'VALUES ($1, $2, $3, $4) RETURNING id',
   [saveSpotlight.title, saveSpotlight.author, saveSpotlight.isbn, saveSpotlight.publishedYear],
         function (err, result) {
-          done();//Chris added & removed next
-          // client.end(); // necessary??
+          done();
 
           if(err) {
             console.log('Error inserting data: ', err);
@@ -101,18 +100,15 @@ router.put('/', function(req, res) {
 
     pool.connect(function(err, client, done) {
     if(err) {
-      console.log('in pg.connect if(err)');
       done();
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-      console.log('in pg.connect else');
       client.query('UPDATE "spotlight" SET "title"= $1, "author" = $2,' +
                     '"active" = $3, "selected_by" = $4, "meeting_date" = $5,' +
                      '"notes" = $6 WHERE "id" = $7;',
                   [title, author, active, selected_by, meeting_date, notes, id],
           function(queryError, result) {
-            console.log('right after client.query before done and if statement');
             done();
             if(queryError) {
               console.log('Error making query', queryError);

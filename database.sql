@@ -1,39 +1,43 @@
-CREATE TABLE "bookclubs" (
-  "BookClubID" serial primary key,
-  "Name" varchar(100) not null unique,
-  "AdminMemberID" int not null,
-  "Active" boolean default true
-);
-
-CREATE TABLE "members" (
-  "MemberID" serial primary key,
-  "Email" varchar(80) not null unique,
-  "Password" varchar(120) not null,
-  "First" varchar(40) not null,
-  "Last" varchar(40) not null,
-  "BookClubID" int not null,
-  "Active" boolean default true,
-  "UserType" varchar(30) not null
+CREATE TABLE "users" (
+  "id" serial primary key,
+  "username" varchar(80) not null unique,
+  "password" varchar(120) not null,
+  "first" varchar(40) not null,
+  "last" varchar(40) not null,
+  "BookClubID" int DEFAULT 1,
+  "active" boolean DEFAULT true,
+  "user_type" varchar(30) DEFAULT 'member',
+  "image" text
 );
 
 CREATE TABLE "messages" (
   "MessageID" serial primary key,
   "MemberID" int not null,
   "Message" text not null,
-  "TimeStamp" timestamp
+  "TimeStamp" text
 );
 
-CREATE TABLE "featured_book" (
+CREATE TABLE "spotlight" (
   "FeaturedBookID" serial primary key,
-  "BookClubID" int not null,
-  "Title" varchar(200) not null,
-  "Author" varchar(100) not null,
-  "Plot" text,
-  "CoverImage" varchar(200),
-  "SelectedByMemberID" int,
-  "DateSelected" date,
-  "MeetingDate" date,
-  "Status" varchar(25) not null
+  "BookClubID" int DEFAULT 1,
+  "title" varchar(200) not null,
+  "author" varchar(100),
+  "isbn" varchar(20),
+  "publishedYear" int,
+  "selected_by" varchar(100),
+  "meeting_date" date,
+  "active" boolean DEFAULT true
+);
+
+
+
+-- Tables Not Yet Created
+
+CREATE TABLE "bookclubs" (
+  "BookClubID" serial primary key,
+  "Name" varchar(100) not null unique,
+  "AdminMemberID" int not null,
+  "Active" boolean default true
 );
 
 CREATE TABLE "archive" (

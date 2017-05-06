@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-    client.query('SELECT "Message", "MessageID", "timestamp", "first", "image"' +
+    client.query('SELECT "Message", "MessageID", "TimeStamp", "first", "image"' +
                   'FROM messages, users WHERE "MemberID" = "id" ORDER BY "MessageID" DESC;',
                   function(queryError, result) {
       done();
@@ -46,7 +46,7 @@ router.post('/', function(req, res) {
       console.log('Error connecting: ', err);
       res.sendStatus(500);
     }
-    client.query('INSERT INTO messages ("MemberID", "Message", "timestamp")' +
+    client.query('INSERT INTO messages ("MemberID", "Message", "TimeStamp")' +
                   'VALUES ($1, $2, $3) RETURNING "MessageID"',
   [saveMessage.MemberID, saveMessage.text, saveMessage.time],
         function (err, result) {
