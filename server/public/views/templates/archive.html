@@ -6,9 +6,13 @@
         <h2 class = "panel-title">Archive</h2>
       </div>
       <div  class="panel-body fixed-panel" ng-init = "archive.getArchive()">
-        <div ng-repeat = "book in archive.archive.array">
-          <div class="well well-md-4">
-            
+        <div ng-repeat = "book in archive.allBooks.array">
+          <div class="well col-md-4 result">
+            <img ng-src="http://covers.openlibrary.org/b/isbn/{{book.isbn}}-M.jpg"
+                  alt="{{book.title}} Book Cover">
+              <p><a href = "https://openlibrary.org/isbn/{{book.isbn}}">{{book.title}}</a></p>
+              <!-- <p>Discussed: {{book.meeting_date | date}}</p> -->
+
           </div>
         </div>
       </div>

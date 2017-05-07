@@ -16,6 +16,7 @@ var search = require('./routes/search.js');
 var spotlights = require('./routes/spotlights.js');
 var messages = require('./routes/messages.js');
 var nightstand = require('./routes/nightstand.js');
+var archive = require('./routes/archive.js');
 
 //App Config
 app.set('port', process.env.PORT || 8000);
@@ -47,6 +48,7 @@ app.use('/search', search);
 app.use('/spotlights', spotlights);
 app.use('/messages', messages);
 app.use('/nightstand', nightstand);
+app.use('/archive', archive);
 app.use('/', index);
 
 //Listen
