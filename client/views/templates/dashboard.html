@@ -17,7 +17,7 @@
             </div>
             <div class="media-body">
               <h4 class = "media-heading"><b>{{message.first}}</b>
-                <span class = "messageDate">{{message.timestamp | date: 'MMM d, y h:mma'}}</span></h4>
+                <span class = "messageDate">{{message.TimeStamp | date: 'MMM d, y h:mma'}}</span></h4>
               <p ng-bind-html="message.Message | linky">{{message.Message}}</p>
             </div>
           </div>

@@ -24,6 +24,7 @@ CREATE TABLE "spotlight" (
   "author" varchar(100),
   "isbn" varchar(20),
   "publishedYear" int,
+  "notes" text,
   "selected_by" varchar(100),
   "meeting_date" date,
   "active" boolean DEFAULT true
