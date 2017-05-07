@@ -21,8 +21,8 @@ router.post('/', function(req, res) {
       console.log('Error connecting: ', err);
       res.sendStatus(500);
     }
-    client.query('INSERT INTO spotlight (title, author, isbn, publishedYear)' +
-                  'VALUES ($1, $2, $3, $4) RETURNING id',
+    client.query('INSERT INTO spotlight (title, author, isbn, "publishedYear")' +
+                  'VALUES ($1, $2, $3, $4) RETURNING "FeaturedBookID"',
   [saveSpotlight.title, saveSpotlight.author, saveSpotlight.isbn, saveSpotlight.publishedYear],
         function (err, result) {
           done();
@@ -71,7 +71,7 @@ console.log(req.params.id);
       console.log('Error connecting to database: ', err);
       res.sendStatus(500);
     } else {
-      client.query('DELETE from spotlight WHERE id = $1;', [req.params.id],
+      client.query('DELETE from spotlight WHERE "FeaturedBookID" = $1;', [req.params.id],
           function(queryError, result) {
             done();
             if(queryError) {
@@ -95,7 +95,7 @@ router.put('/', function(req, res) {
   var selected_by = req.body.selected_by;
   var meeting_date = req.body.meeting_date;
   var notes = req.body.notes;
-  var id = req.body.id;
+  var id = req.body.FeaturedBookID;
   // console.log(id);
 
     pool.connect(function(err, client, done) {
@@ -106,7 +106,7 @@ router.put('/', function(req, res) {
     } else {
       client.query('UPDATE "spotlight" SET "title"= $1, "author" = $2,' +
                     '"active" = $3, "selected_by" = $4, "meeting_date" = $5,' +
-                     '"notes" = $6 WHERE "id" = $7;',
+                     '"notes" = $6 WHERE "FeaturedBookID" = $7;',
                   [title, author, active, selected_by, meeting_date, notes, id],
           function(queryError, result) {
             done();
