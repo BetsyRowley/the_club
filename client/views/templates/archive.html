@@ -5,9 +5,13 @@
       <div class="panel-heading">
         <h2 class = "panel-title">Archive</h2>
       </div>
-      <table class = "table">
-
-      </table>
+      <div  class="panel-body fixed-panel" ng-init = "archive.getArchive()">
+        <div ng-repeat = "book in archive.archive.array">
+          <div class="well well-md-4">
+            
+          </div>
+        </div>
+      </div>
       <div class = "panel-footer"></div>
   </div>
 </div>

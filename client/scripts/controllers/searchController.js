@@ -28,14 +28,14 @@ search.addToSpotlight = function(book) {
   });
 };
 
-//Posts book to db & takes use to the Spotlight view
+//Posts book to db & takes user to the nightstand view
 search.addToNightStand = function(book) {
   console.log(book);
   $http.post('/nightstand', book).then(function(response) {
     console.log(response);
-    //direct to /spotlight
     $location.path('/nightstand');
   });
 };
+
 
 }]);

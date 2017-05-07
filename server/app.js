@@ -46,7 +46,7 @@ app.use('/user', user);
 app.use('/search', search);
 app.use('/spotlights', spotlights);
 app.use('/messages', messages);
-app.use('nightstand', nightstand);
+app.use('/nightstand', nightstand);
 app.use('/', index);
 
 //Listen

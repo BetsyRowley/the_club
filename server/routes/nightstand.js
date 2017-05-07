@@ -4,10 +4,9 @@ var path = require('path');
 
 var pool = require('../modules/pool');
 
-console.log('in the night stand router');
 // Handles POST request with new night stand book
 router.post('/', function(req, res) {
-console.log('in the night stand post router');
+console.log('in the night stand post router', req.body);
   var saveNightStand = {
     title: req.body.title,
     author: req.body.author_name[0],

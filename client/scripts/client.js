@@ -37,8 +37,8 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/archive', {
       templateUrl: '/views/templates/archive.html',
-      controller: 'DashboardController',
-      controllerAs: 'dashboard',
+      controller: 'ArchiveController',
+      controllerAs: 'archive',
       resolve: {
         getuser : ['ClubService', function(ClubService){
           return ClubService.getuser();
