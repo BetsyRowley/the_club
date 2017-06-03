@@ -15,15 +15,15 @@ myApp.controller('LoginController', ['$http', '$location', 'ClubService',
       if(login.user.username === '' || login.user.password === '') {
         login.message = "Enter your username and password!";
       } else {
-        console.log('sending to server...', login.user);
+        // console.log('sending to server...', login.user);
         $http.post('/', login.user).then(function(response) {
           if(response.data.username) {
-            console.log('success: ', response.data);
+            // console.log('success: ', response.data);
             // location works with SPA (ng-route)
-            console.log('redirecting to user page');
+            // console.log('redirecting to user page');
             $location.path('/dashboard');
           } else {
-            console.log('failure: ', response);
+            // console.log('failure: ', response);
             login.message = "Either your email or password were incorrect, please try again!";
           }
         });
@@ -35,13 +35,13 @@ myApp.controller('LoginController', ['$http', '$location', 'ClubService',
           login.user.first === '' || login.user.last === '') {
         login.message = "Please complete all fields!";
       } else {
-        console.log('sending to server...', login.user);
+        // console.log('sending to server...', login.user);
         $http.post('/register', login.user).then(function(response) {
-          console.log('success');
+          // console.log('success');
           $location.path('/home');
         },
         function(response) {
-          console.log('error');
+          // console.log('error');
           login.message = "Please try again.";
         });
       }

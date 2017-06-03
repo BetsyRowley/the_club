@@ -1,7 +1,7 @@
 myApp.controller('SpotlightController', ['$http', '$location', 'ClubService',
       function($http, $location, ClubService) {
   // This happens after view/controller loads -- not ideal but it works for now.
-  console.log('checking user');
+  // console.log('checking user');
   var spotlight = this;
   spotlight.feature = {};
   spotlight.activeResults = {};
@@ -13,29 +13,29 @@ myApp.controller('SpotlightController', ['$http', '$location', 'ClubService',
 
 
   spotlight.getSpotlight = function() {
-    console.log("client sent request for spotlight results");
+    // console.log("client sent request for spotlight results");
       $http.get('/spotlights').then(function(response) {
           spotlight.activeResults.array = response.data;
-          console.log('Active Spotlights from db: ', spotlight.activeResults.array);
+          // console.log('Active Spotlights from db: ', spotlight.activeResults.array);
       });
   };
 
   //Deletes a spotlight book from the db
   spotlight.deleteSpotlight = function(book) {
-    console.log(book);
+    // console.log(book);
     var id = book.FeaturedBookID;
-    console.log(id);
+    // console.log(id);
     $http.delete('/spotlights/' + id).then(function(response) {
-      console.log("Deletes " + id);
+      // console.log("Deletes " + id);
       spotlight.getSpotlight();
     });
   };
 
   //Displays edit form with selected book info
   spotlight.showEditForm = function(book) {
-    console.log('edit button clicked');
+    // console.log('edit button clicked');
     spotlight.editing = true;
-    console.log(book);
+    // console.log(book);
     spotlight.feature.book = angular.copy(book);
   };
 
@@ -47,10 +47,10 @@ myApp.controller('SpotlightController', ['$http', '$location', 'ClubService',
 
   //Edits a spotlight book
   spotlight.editSpotlight = function() {
-    console.log(spotlight.feature.book);
+    // console.log(spotlight.feature.book);
     var book = spotlight.feature.book;
     $http.put('/spotlights', book).then(function(response) {
-      console.log('Saves Edits ', book);
+      // console.log('Saves Edits ', book);
       spotlight.getSpotlight();
       spotlight.editing = false;
     });

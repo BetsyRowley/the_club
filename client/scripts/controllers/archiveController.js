@@ -10,7 +10,7 @@ myApp.controller('ArchiveController', ['$http', '$location', 'ClubService',
     archive.getArchive = function() {
       $http.get('/archive').then(function(response) {
         archive.allBooks.array = response.data;
-        console.log("Archive from db: ", archive.allBooks);
+        // console.log("Archive from db: ", archive.allBooks);
       });
     }; //End of GET request
 
