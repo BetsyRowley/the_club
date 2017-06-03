@@ -30,8 +30,8 @@ app.use(express.static('server/public'));
 
 // Passport Session Configuration //
 app.use(session({
-   secret: 'secret',
-   key: 'user',
+   secret: 'Xlot4UD5i0GPolBfHety',
+   key: 'eWP9zpm7GNp5bGXNS4kN',
    resave: 'true',
    saveUninitialized: false,
    cookie: {maxage: 600000, secure: false}

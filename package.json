@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon server/app.js",
+    "postinstall": "grunt uglify copy",
     "start": "node server/app.js"
   },
   "author": "Betsy Rowley",
