@@ -31,33 +31,63 @@ Individually, members will be able to add other books of interest to their perso
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You will need to have the following software installed.
 
 ```
-Give examples
+[Node.js](https://nodejs.org/en/)
+```
+
+```
+[PostgreSql](https://launchschool.com/blog/how-to-install-postgresql-on-a-mac)
+```
+
+```
+[Postico](https://eggerapps.at/postico/)
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Steps to get the development environment running.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+1. Clone the repository to your local machine.
 
 ```
-until finished
+git clone https://github.com/BetsyRowley/the_club.git
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+2. Install all dependencies.
+
+```
+npm install
+```
+
+2. Ensure PostgreSql is running.
+
+```
+brew services start postgresql
+```
+
+3. Start Grunt.
+
+```
+grunt
+```
+
+4. Spin up the Server.
+
+```
+npm start
+```
+
+4. Open in the browser.
+
+```
+localhost:8000
+```
 
 ## Built With
 
