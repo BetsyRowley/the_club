@@ -4,11 +4,11 @@
 
 The Club is a full-stack web application that serves as a social platform for book clubs. It creates a central location for club members to communicate, as well as track current and past books they have read.
 
-Upon logging in, each member will be able to share thoughts, articles, events, videos and resources with other members via the message board.
+Upon logging in, each member is able to share thoughts, articles, events, videos and resources with other members via the message board.
 
-Additionally, all members will have the same view of the featured current book that the group has selected and the Archive of all past books that have been read and discussed.
+Additionally, all members have the same view of the featured current book that the group has selected and the Archive of all past books that have been read and discussed.
 
-Individually, members will be able to add other books of interest to their personal “Night Stand”. These books could be recommendations received from other members or books they have come across that they might want to chose when it is their turn to select the book.
+Individually, members are able to add other books of interest to their personal “Night Stand”. These books could be recommendations received from other members or books they have come across that they might want to chose when it is their turn to select the book.
 
 ## Application Features
 
