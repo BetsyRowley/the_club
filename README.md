@@ -8,7 +8,11 @@ Additionally, all members will have the same view of the featured current book t
 
 Individually, members will be able to add other books of interest to their personal “Night Stand”. These books could be recommendations received from other members or books they have come across that they might want to chose when it is their turn to select the book.
 
-![Login](ClubLogin.png)
+![Login](screenshots/ClubLogin.png)
+
+## Application Features
+
+
 
 ## Getting Started
 
